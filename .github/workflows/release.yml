@@ -32,6 +32,7 @@ jobs:
     steps:
       - name: Step 1 - Create a temporary artifact downloads folder
         run: mkdir downloads
+          python setup.py sdist
         
       - name: step 2 - Add artifacts to publish to the temp folder
         run: |
@@ -39,7 +40,7 @@ jobs:
           echo 'alpha'    > alpha.html
           echo 'bravo'    > bravo.html
           echo 'charlie'  > charlie.html
-          python setup.py sdist
+          
           cd ..
     
       - name: Step 3 - Use the Upload Artifact GitHub Action
