@@ -30,6 +30,9 @@ jobs:
   archive-build-artifacts:
     runs-on: ubuntu-latest
     steps:
+      - name: Build distributions
+#         shell: bash -l {0}
+        run: python setup.py sdist bdist_wheel
       - name: Step 1 - Create a temporary artifact downloads folder
         run: mkdir downloads
           python setup.py sdist
@@ -47,4 +50,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with: 
           name: assets-for-download
-          path: downloads
+          path: dist
