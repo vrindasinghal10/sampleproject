@@ -33,21 +33,21 @@ jobs:
       - name: Build distributions
 #         shell: bash -l {0}
         run: python setup.py sdist bdist_wheel
-      - name: Step 1 - Create a temporary artifact downloads folder
-        run: mkdir downloads
-          python setup.py sdist
+#       - name: Step 1 - Create a temporary artifact downloads folder
+#         run: mkdir downloads
+#           python setup.py sdist
         
-      - name: step 2 - Add artifacts to publish to the temp folder
-        run: |
-          cd downloads
-          echo 'alpha'    > alpha.html
-          echo 'bravo'    > bravo.html
-          echo 'charlie'  > charlie.html
+#       - name: step 2 - Add artifacts to publish to the temp folder
+#         run: |
+#           cd downloads
+#           echo 'alpha'    > alpha.html
+#           echo 'bravo'    > bravo.html
+#           echo 'charlie'  > charlie.html
           
-          cd ..
+#           cd ..
     
       - name: Step 3 - Use the Upload Artifact GitHub Action
         uses: actions/upload-artifact@v2
         with: 
-          name: assets-for-download
-          path: dist
+          name: packages
+          path: src
