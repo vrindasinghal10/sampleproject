@@ -23,7 +23,7 @@ jobs:
 
     - name: Build distributions
       run: python setup.py sdist bdist_wheel && 
-           echo "Deploying to production server on branch $GITHUB_RUN_NUMBER"
+           echo "Deploying to production server on branch ${{GITHUB_RUN_NUMBER}}"
   
     
     - name: Step 3 - Use the Upload Artifact GitHub Action
